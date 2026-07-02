@@ -80,7 +80,7 @@ section {
 h2 {
     color: var(--accent-color);
     text-align: center;
-    text-size: 30px;
+    font-size: 30px;
 }
 
 p {
@@ -160,12 +160,14 @@ ul {
     width: fit-content;
     margin: 0 auto;
     font-family: "Charm", arial, sans-serif;
+    font-size: 30px;
 }
 
 ol {
     width: fit-content;
     margin: 0 auto;
     font-family: "Charm", arial, sans-serif;
+    font-size: 30px;
 }
 
 form {
