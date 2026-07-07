@@ -2,60 +2,88 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <title>Page Not Found</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    * {
-      line-height: 1.2;
-      margin: 0;
-    }
-
-    html {
-      color: #888;
-      display: table;
-      font-family: sans-serif;
-      height: 100%;
-      text-align: center;
-      width: 100%;
-    }
-
-    body {
-      display: table-cell;
-      vertical-align: middle;
-      margin: 2em auto;
-    }
-
-    h1 {
-      color: #555;
-      font-size: 2em;
-      font-weight: 400;
-    }
-
-    p {
-      margin: 0 auto;
-      width: 280px;
-    }
-
-    @media only screen and (max-width: 280px) {
-
-      body,
-      p {
-        width: 95%;
-      }
-
-      h1 {
-        font-size: 1.5em;
-        margin: 0 0 0.3em;
-      }
-
-    }
-  </style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>404 - Page Not Found</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="img/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="img/icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Tint&family=Cause:wght@100..900&family=Charm:wght@400;700&family=Honk:MORF@15&display=swap" rel="stylesheet">
 </head>
 
 <body>
-  <h1>Page Not Found</h1>
-  <p>Sorry, but the page you were trying to view does not exist.</p>
+    <header>
+        <div id="name">
+            <h2>Varshney</h2>
+        </div>
+        <div id="navbar">
+            <a href="index.html">Home</a>
+            <a href="about_me.html">About me</a>
+            <a href="skills.html">Skills</a>
+            <a href="education.html">Education</a>
+            <a href="https://canva.link/dqznthgeoojpucj">Resume</a>
+            <a href="contact_form.html">Contact</a>
+        </div>
+    </header>
+
+    <main class="subpages" style="text-align: center; display: flex; flex-direction: column; justify-content: center;">
+        <h1 style="font-size: 8rem; color: var(--color-accent);">404</h1>
+        <h2>Page Not Found</h2>
+        <p>Sorry, but the page you were trying to view does not exist.</p>
+        <a href="index.html" style="color: var(--color-accent); font-family: var(--font-heading); font-size: 1.5rem; text-decoration: none; margin-top: 2rem;">Back to Home</a>
+    </main>
+
+    <footer>
+        <h2>Connections</h2>
+        <p>
+            <a href="https://github.com/Varsh2007"
+               target="_blank"
+               rel="noopener noreferrer"
+               title="My GitHub Page">
+                <img src="img/github.png"
+                     height="50"
+                     alt="Github Logo">
+            </a>
+
+            <a href="https://www.linkedin.com/in/varshney-ganesh-lakade-2b51b7408"
+               target="_blank"
+               rel="noopener noreferrer"
+               title="My LinkedIn Page">
+                <img src="img/linkedin.png"
+                     height="50"
+                     alt="LinkedIn Logo">
+            </a>
+
+            <a href="mailto:varshney.lakade@gmail.com"
+               target="_blank"
+               rel="noopener noreferrer"
+               title="My Gmail Address">
+                <img src="img/gmail.png"
+                     height="50"
+                     alt="Gmail Logo">
+            </a>
+
+            <a href="404.html"
+               target="_blank"
+               rel="noopener noreferrer"
+               title="My twitter">
+                <img src="img/twitter.png"
+                     height="50"
+                     alt="Twitter Logo">
+            </a>
+
+            <a href="404.html"
+               target="_blank"
+               rel="noopener noreferrer"
+               title="My Instagram Profile">
+                <img src="img/instagram.png"
+                     height="50"
+                     alt="Instagram Logo">
+            </a>
+        </p>
+    </footer>
 </body>
 
 </html>
