@@ -24,8 +24,14 @@ This is my first web app that I have successfully created and deployed. It serve
 ```
 My_Portfolio_Website/
 ├── index.html          # Main landing page
+├── about_me.html       # Personal background
+├── education.html      # Academic background
+├── skills.html         # Technical expertise
+├── projects.html       # Project showcase
+├── contact_form.html   # Contact form page
 ├── css/                # Stylesheets
-├── img/                # Images
+│   └── style.css
+├── img/                # Images and icons
 └── README.md           # This file
 ```
 
@@ -33,11 +39,11 @@ My_Portfolio_Website/
 
 To personalize this portfolio:
 
-1. Update `index.html` with your content
-2. Modify colors and styling in `css/` folder
-3. Add your projects to the projects section
-4. Update contact information
-5. Add your photos and media to `img/`
+1. Update HTML files with your own content
+2. Modify colors and styling in `css/style.css`
+3. Add your projects to `projects.html`
+4. Update contact information in `contact_form.html`
+5. Add your photos and media to `img/` folder
 
 ## 📚 Sections
 
@@ -46,14 +52,16 @@ To personalize this portfolio:
 - **Skills** - Technical skills and expertise
 - **Education** - Academic background
 - **Projects** - Showcase of completed projects
-- **Resume** - Link to your Resume
+- **Resume** - Link to digital resume
 - **Contact** - Contact form and social links
 
 ## 💡 Key Learnings
 
 As my first deployed web app, this project taught me:
 - HTML and CSS fundamentals
-- Web hosting and domain management
+- Responsive web design principles
+- Web hosting with GitHub Pages
+- Version control with Git
   
 ## 🤝 Contributing
 
