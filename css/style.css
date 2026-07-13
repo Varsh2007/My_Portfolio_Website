@@ -435,7 +435,7 @@ input[type="reset"]:hover {
     font-family: var(--font-alt);
     text-transform: uppercase;
     letter-spacing: 2px;
-    font-size: 0.85rem;
+    font-size: 1.5rem;
     color: var(--color-accent);
     margin-top: var(--spacing-md);
     margin-bottom: var(--spacing-sm);
