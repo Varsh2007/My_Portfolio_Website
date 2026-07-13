@@ -11,7 +11,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bungee+Tint&family=Cause:wght@100..900&family=Charm:wght@400;700&family=Honk:MORF@15&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Tint&family=Cause:wght@100..900&family=Charm:wght@400;700&family=Honk:MORF@15&family=Montserrat:wght@400;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
     <meta name="theme-color" content="#fafafa">
 </head>
 <body>
@@ -32,22 +32,35 @@
         </div>
     </header>
 
-    <h2>This is under development</h2>
+    <main class="subpages">
+        <h2>Contact</h2>
+        <div class="dev-status">Under Development</div>
+        <p>I am currently learning JavaScript to make this form functional. In the meantime, feel free to reach out to discuss new projects or opportunities!</p>
 
-    <form action="" method="POST">
+        <div class="contact-container">
+            <form action="" method="POST">
+                <div class="form-group">
+                    <label for="Name_input">Name</label>
+                    <input type="text" id="Name_input" placeholder="Enter your name" required>
+                </div>
 
-        <label for="Name_input">Name: </label>
-        <input type="text" id="Name_input" placeholder="Your name">
+                <div class="form-group">
+                    <label for="Email">Email</label>
+                    <input type="email" id="Email" placeholder="Enter your email" required>
+                </div>
 
-        <label for="Email">Email: </label>
-        <input type="email" id="Email" placeholder="Your email">
+                <div class="form-group">
+                    <label for="Message">Message</label>
+                    <textarea id="Message" rows="6" placeholder="How can I help you?" required></textarea>
+                </div>
 
-        <label for="Message">Message: </label>
-        <textarea id="Message" rows="10" cols="50" placeholder="Your message..."></textarea>
-
-        <input type="submit" value="Send">
-        <input type="reset" value="Reset">
-    </form>
+                <div class="form-actions">
+                    <input type="submit" value="Send Message">
+                    <input type="reset" value="Reset">
+                </div>
+            </form>
+        </div>
+    </main>
 
     <footer>
         <h2>Connections</h2>

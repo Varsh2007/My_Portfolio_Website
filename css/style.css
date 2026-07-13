@@ -17,6 +17,8 @@
     --font-subheading: "Bungee Tint", arial, sans-serif;
     --font-body: "Charm", arial, sans-serif;
     --font-nav: "Honk", arial, sans-serif;
+    --font-alt: "Montserrat", sans-serif;
+    --font-mono: "JetBrains Mono", monospace;
 
     /* Spacing */
     --spacing-xs: 0.5rem;
@@ -43,7 +45,26 @@
 html {
     scroll-behavior: smooth;
     width: 100%;
-    overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: #222;
+    border-radius: 5px;
+    border: 2px solid var(--color-bg);
+    transition: var(--transition);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-accent);
 }
 
 body {
@@ -55,6 +76,19 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    position: relative;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: -10%;
+    left: -10%;
+    width: 40%;
+    height: 40%;
+    background: radial-gradient(circle, rgba(229, 9, 20, 0.07) 0%, transparent 70%);
+    z-index: -1;
+    pointer-events: none;
 }
 
 /*
@@ -63,12 +97,14 @@ body {
 ========================================
 */
 header {
-    background-color: var(--color-bg);
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
     padding: var(--spacing-sm) var(--spacing-md);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid #333;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -127,6 +163,7 @@ p {
     color: var(--color-accent);
     font-weight: bold;
     font-family: var(--font-heading);
+    text-shadow: 0 0 15px rgba(229, 9, 20, 0.4);
 }
 
 /*
@@ -152,6 +189,7 @@ p {
 #navbar a:hover {
     color: var(--color-accent);
     border-bottom: 2px solid var(--color-accent);
+    text-shadow: 0 0 10px rgba(229, 9, 20, 0.4);
 }
 
 /*
@@ -169,6 +207,22 @@ p {
     margin: 0 var(--spacing-lg) var(--spacing-md) 0;
     border: 3px solid var(--color-accent);
     box-shadow: 0 10px 30px rgba(229, 9, 20, 0.2);
+    animation: pulse-glow 4s infinite ease-in-out;
+    transition: var(--transition);
+}
+
+#pfp:hover {
+    transform: scale(1.02) rotate(1deg);
+    box-shadow: 0 15px 45px rgba(229, 9, 20, 0.4);
+}
+
+@keyframes pulse-glow {
+    0%, 100% {
+        box-shadow: 0 10px 30px rgba(229, 9, 20, 0.2);
+    }
+    50% {
+        box-shadow: 0 10px 50px rgba(229, 9, 20, 0.5);
+    }
 }
 
 /* Social Links in Footer */
@@ -210,72 +264,107 @@ li {
    FORMS
 ========================================
 */
+.contact-container {
+    background: rgba(255, 255, 255, 0.02);
+    padding: var(--spacing-lg);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    max-width: 700px;
+    margin: var(--spacing-md) 0; /* Align to the left in subpages */
+}
+
 form {
-    max-width: 600px;
-    margin: var(--spacing-md) auto;
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-sm);
-    text-align: left;
+    gap: var(--spacing-md);
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
 }
 
 label {
+    font-family: var(--font-alt);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.8rem;
     color: var(--color-accent);
-    font-weight: bold;
-    font-size: 1.1rem;
+    font-weight: 700;
 }
 
 input[type="text"],
 input[type="email"],
 textarea {
     width: 100%;
-    padding: 0.8rem;
-    border-radius: 8px;
-    border: 1px solid #333;
-    background-color: var(--color-surface);
+    padding: 1rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.03);
     color: var(--color-text);
-    font-family: inherit;
+    font-family: var(--font-mono);
     font-size: 1rem;
     transition: var(--transition);
+}
+
+input[type="text"]::placeholder,
+input[type="email"]::placeholder,
+textarea::placeholder {
+    color: rgba(255, 255, 255, 0.2);
+    font-family: var(--font-alt);
 }
 
 input:focus, textarea:focus {
     outline: none;
+    background-color: rgba(229, 9, 20, 0.05);
     border-color: var(--color-accent);
-    box-shadow: 0 0 0 2px rgba(229, 9, 20, 0.2);
+    box-shadow: 0 0 20px rgba(229, 9, 20, 0.2);
+}
+
+.form-actions {
+    display: flex;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-sm);
 }
 
 input[type="submit"],
 input[type="reset"] {
-    padding: 0.8rem 1.5rem;
-    border-radius: 8px;
+    flex: 1;
+    padding: 1rem 2rem;
+    border-radius: 12px;
     border: none;
     cursor: pointer;
-    font-weight: bold;
-    font-size: 1rem;
+    font-family: var(--font-alt);
+    font-weight: 700;
+    font-size: 0.9rem;
     transition: var(--transition);
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
 }
 
 input[type="submit"] {
     background-color: var(--color-accent);
     color: white;
+    box-shadow: 0 5px 15px rgba(229, 9, 20, 0.3);
 }
 
 input[type="submit"]:hover {
     background-color: var(--color-accent-hover);
-    transform: translateY(-2px);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(229, 9, 20, 0.5);
 }
 
 input[type="reset"] {
     background-color: transparent;
-    border: 1px solid #555;
+    border: 1px solid rgba(255, 255, 255, 0.1);
     color: var(--color-text-muted);
 }
 
 input[type="reset"]:hover {
-    background-color: #222;
+    background-color: rgba(255, 255, 255, 0.05);
+    color: var(--color-text);
 }
 
 /*
@@ -307,8 +396,97 @@ input[type="reset"]:hover {
 .subpages p {
     text-align: left;
     margin-top: var(--spacing-sm);
-    font-family: "Montserrat", sans-serif;
+    font-family: var(--font-alt);
     color: var(--color-text-muted);
+}
+
+/* Glow & Utility Classes */
+.dev-status {
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 6px 16px;
+    background: rgba(229, 9, 20, 0.1);
+    color: var(--color-accent);
+    border: 1px solid rgba(229, 9, 20, 0.3);
+    border-radius: 4px;
+    font-family: var(--font-mono);
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: var(--spacing-md);
+    font-weight: 700;
+    box-shadow: 0 0 15px rgba(229, 9, 20, 0.1);
+}
+
+.red-text-small {
+    color: var(--color-accent);
+    font-weight: 600;
+}
+
+.glow-text {
+    color: var(--color-text);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+    font-weight: 500;
+}
+
+/* Skills & Learning Badges */
+.section-label {
+    font-family: var(--font-alt);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.85rem;
+    color: var(--color-accent);
+    margin-top: var(--spacing-md);
+    margin-bottom: var(--spacing-sm);
+    font-weight: 700;
+    display: block;
+    border-left: 3px solid var(--color-accent);
+    padding-left: 10px;
+}
+
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-bottom: var(--spacing-lg);
+}
+
+.skill-badge {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    transition: var(--transition);
+    cursor: default;
+    color: var(--color-text-muted);
+}
+
+.skill-badge:hover {
+    background: rgba(229, 9, 20, 0.1);
+    border-color: rgba(229, 9, 20, 0.5);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 20px rgba(229, 9, 20, 0.2);
+    color: var(--color-text);
+}
+
+/* Projects Page */
+.projects-placeholder {
+    text-align: center;
+    padding: var(--spacing-xl) var(--spacing-md);
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 20px;
+    border: 1px dashed rgba(255, 255, 255, 0.1);
+}
+
+.glow-box {
+    margin-top: var(--spacing-md);
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
 }
 
 .edu-intro {
@@ -449,5 +627,13 @@ input[type="reset"]:hover {
 
     #intro {
         text-align: center;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+
+    .contact-container {
+        padding: var(--spacing-md);
     }
 }
